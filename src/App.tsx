@@ -1,11 +1,10 @@
-import { Box } from "@mui/material";
 import "./index.css";
 
 function App() {
   return (
-    <div className="w-screen h-screen flex items-center justify-center text-4xl ">
-      <span className="block text-7xl pr-5 pb-4 uppercase">wellcome!</span>
-      to the inialized stage of purchse plan project
+    <div className="flex h-screen w-screen items-center justify-center text-4xl font-Ubuntu">
+      <span className="block pb-4 pr-5 text-7xl uppercase">wellcome!</span>
+      to the FULLY inialized stage of purchse plan project
     </div>
   );
 }
