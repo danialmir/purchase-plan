@@ -7,6 +7,33 @@
         font-family: "Ubuntu", sans-serif;
         font-weight: 400;
         font-style: normal;
-        src: url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+        src: url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+    }
+    @font-face {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        src: url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+    }
+    @font-face {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        src: url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+    }
+}
+
+@layer components{
+    .sidebar-icon{
+        @apply w-8 h-8 rounded-full border-2 border-white text-white font-bold flex items-center justify-center
+    }
+    .sidebar-icon--active{
+        @apply border-Light-blue text-Marine-blue bg-Light-blue
+    }
+    .h1{
+        @apply text-Marine-blue text-3xl font-bold tracking-wide
+    }
+    .subtitle{
+        @apply text-Cool-gray text-sm mt-3
     }
 }
