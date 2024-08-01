@@ -15,6 +15,8 @@ export default {
   "src/components/PlanCard.tsx",
   "src/components/NavigateButtonGroup.tsx"
   ,"src/components/AddOption.tsx","src/components/AddOptionList.tsx"
+  ,'src/components/Summery.tsx','src/components/PurchaseSummery.tsx'
+  ,'src/components/Compleated.tsx'
 
 ],
   theme: {
