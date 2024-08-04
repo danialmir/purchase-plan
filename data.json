@@ -1,0 +1,37 @@
+{
+  "plans": [
+    {
+      "id": "arcade",
+      "name": "arcade",
+      "price": { "monthly": 9, "yearly": 108 },
+      "image":"/assets/images/icon-arcade.svg",
+      "discount": {
+        "duration": "yearly",
+        "massage": "2 mounths free!",
+        "price": 90
+      }
+    },
+    {
+      "id": "advanced",
+      "name": "advanced",
+      "price": { "monthly": 12, "yearly": 144 },
+      "image":"/assets/images/icon-advanced.svg",
+      "discount": {
+        "duration": "yearly",
+        "massage": "2 mounths free!",
+        "price": 120
+      }
+    },
+    {
+      "id": "arcade",
+      "name": "arcade",
+      "price": { "monthly": 15, "yearly": 180 },
+      "image":"/assets/images/icon-pro.svg",
+      "discount": {
+        "duration": "yearly",
+        "massage": "2 mounths free!",
+        "price": 150
+      }
+    }
+  ]
+}

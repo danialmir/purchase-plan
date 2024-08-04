@@ -1,15 +1,21 @@
 import { Typography } from "@mui/material"
+import { useAccount } from "../context/useAccount"
 
 interface Props {
     id:string
     planName:string
-    price:number
+    price:{
+        monthly:number,
+        yearly:number
+    }
     image:string
     duration?:string
 }
 
 
 function PlanCard({id,planName,price,image,duration='monthly'}:Props) {
+
+    
     return (
             <li className="w-32 h-40 flex flex-col">
             <input type="radio" name="plans" id={id} className="peer hidden" onChange={e=> console.log(`${e.target.name}=${e.target.id}`)
@@ -18,7 +24,7 @@ function PlanCard({id,planName,price,image,duration='monthly'}:Props) {
             <img src={image} alt="plan logo" />
                 <div>
                     <Typography variant="subtitle1" className="text-Marine-blue">{planName}</Typography>
-                    <Typography variant="subtitle2" className="text-Cool-gray">{`${price}$${duration === 'monthly' ? '/mo': '/yr'}`}</Typography>
+                    <Typography variant="subtitle2" className="text-Cool-gray">{`${duration==="monthly"? price.monthly:price.yearly}$${duration === 'monthly' ? '/mo': '/yr'}`}</Typography>
                 </div>
                 </label>
             </li>

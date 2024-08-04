@@ -1,6 +1,7 @@
 import { createTheme, ThemeProvider } from "@mui/material";
 import Sidebar from "./components/Sidebar"
 import Step from "./components/Step"
+import AccountProvider from "./context/AcountProvider"
 
 declare module '@mui/material/styles' {
   interface Palette {
@@ -43,10 +44,12 @@ const theme = createTheme({
 function App() {
     return (
         <ThemeProvider theme={theme}>
-        <div className="lg:w-3/5 w-4/5 h-4/5 rounded-2xl bg-Alabaster flex overflow-hidden p-3 gap-3 text">
-            <Sidebar />
-            <Step />
-        </div>
+        <AccountProvider >
+          <div className="lg:w-3/5 w-4/5 h-4/5 rounded-2xl bg-Alabaster flex overflow-hidden p-3 gap-3 text">
+              <Sidebar />
+              <Step />
+          </div>
+        </AccountProvider>
         </ThemeProvider>
     )
 }

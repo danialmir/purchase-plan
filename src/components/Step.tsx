@@ -12,7 +12,7 @@ function Step() {
             <div className="w-4/5">
                 <BrowserRouter>
                 <Routes>
-                   <Route path="/" element={<Navigate to='/stage2-selectPlan' />} />
+                   <Route path="/" element={<Navigate to='/stage1-personalInfo' />} />
                     <Route path="/stage1-personalInfo" element={<PersonalInfoForm/>}/>
                     <Route path="/stage2-selectPlan" element={<SelectPlan />}/>
                     <Route path="/stage3-add-ones" element={<AddOnes />}/>
