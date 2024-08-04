@@ -4,11 +4,15 @@ import AddOption from "./AddOption"
 
 function AddOptionList() {
     const [addedOptions,setAddedOptions]:[string[],React.Dispatch<SetStateAction<string[]>>] =useState<string[]>([]);
-    type optionEvents = (id:string,action?:string)=>boolean|void
+    type optionEvents = (id:string,action?:string)=>boolean|undefined;
     const optionEvents: optionEvents = function (id,action='status'){
         if(id&&action === 'status') return addedOptions.includes(id)
-        if(id && action === 'add') setAddedOptions(addedOptions=> [...addedOptions , id])
-        if(id && action === 'delete') setAddedOptions(addedOptions=> [...addedOptions.filter(value=> value !== id)])
+        if(id && action === 'add') {setAddedOptions(addedOptions=> [...addedOptions , id]);
+            return true
+        }
+        if(id && action === 'delete') {setAddedOptions(addedOptions=> [...addedOptions.filter(value=> value !== id)]);
+                return false
+        }
     };
 
 

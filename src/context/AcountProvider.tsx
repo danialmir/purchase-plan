@@ -1,10 +1,6 @@
-import { createContext, ReactNode, useContext, useEffect, useReducer } from "react";
-import Account, { BASE_URL, PlanDurations } from "../module";
+import { ReactNode ,useEffect, useReducer } from "react";
+import Account, { actionList, BASE_URL, PlanDurations ,accountcontext, Action} from "../module";
 import { info as Info, subscription as Subscription } from "../module";
-import { json } from "react-router-dom";
-import { duration } from "@mui/material";
-
-const accountcontext = createContext({});
 
 
 
@@ -22,45 +18,40 @@ const subscription: Subscription = {
   expences: [0],
 };
 
-enum actionList {
-  updateName = "info/name/update",
-  updateEmail = "info/email/update",
-  updatePhoneNumber = "info/phoneNumber/update",
-  changeDuration='plan/changeDuration',
-  _fetchPlans = 'plan/fechPlans',
-  _plansLoaded='plan/plansLoaded' 
-}
 
-const accountReducer = function (
-  { info, subscription }: Account,
-  { type, payload }: { type: actionList; payload: unknown },
+const accountReducer: (account:Account,action:Action) => Account = function (
+  account: Account,
+  action:Action
 ) {
+  const { info, subscription } = account;
+  const { type, payload } = action;
+
   switch (type) {
     case actionList.updateName:
-      return { subscription, info: { ...info, name: payload } };
+      return { subscription, info: { ...info, name: payload } }as Account;
     case actionList.updateEmail:
-      return { subscription, info: { ...info, email: payload } };
+      return { subscription, info: { ...info, email: payload } } as Account;
     case actionList.updatePhoneNumber:
-      return { subscription, info: { ...info, phoneNumber: payload } };
+      return { subscription, info: { ...info, phoneNumber: payload } } as Account;
     case actionList._fetchPlans:
-      return {info , subscription}
+      return {info , subscription} as Account
     case actionList._plansLoaded:
-      return {info,subscription:{...subscription, isPlansLoaded:true , avaliblePlans:payload}}
+      return {info,subscription:{...subscription, isPlansLoaded:true , avaliblePlans:payload}} as Account
     case actionList.changeDuration:
-      return subscription.duration === PlanDurations.monthly ? {info,subscription:{...subscription, duration: PlanDurations.yearly}} :{info,subscription:{...subscription, duration: PlanDurations.monthly}} 
+      return subscription.duration === PlanDurations.monthly ? {info,subscription:{...subscription, duration: PlanDurations.yearly}} as Account :{info,subscription:{...subscription, duration: PlanDurations.monthly}} as Account 
     default:
       console.error("unknown action");
+      return account
   }
 };
 
 function ContextProvider({ children }: { children: ReactNode }) {
-  const [account, dispatchAccount] = useReducer(accountReducer, {
+  const [account, dispatchAccount] = useReducer<(account:Account,action:Action)=>Account>(accountReducer,{
     info,
     subscription,
   });
-
   useEffect(function(){
-    dispatchAccount({type:actionList._fetchPlans})
+    dispatchAccount({type:actionList._fetchPlans,payload:''})
     async function fetchPlans(baseUrl:string) {
       const request = await fetch(`${baseUrl}/plans`);
       const data = await request.json();
@@ -75,5 +66,5 @@ function ContextProvider({ children }: { children: ReactNode }) {
     </accountcontext.Provider>
   );
 }
-export { accountcontext, actionList};
+
 export default ContextProvider;

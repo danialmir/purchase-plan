@@ -1,8 +1,7 @@
 import { Button, TextField } from "@mui/material";
-import { Dispatch, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { accountcontext, actionList } from "../context/AcountProvider";
 import { useAccount } from "../context/useAccount";
+import { actionList } from "../module";
 
 function PersonalInfoForm() {
   const navigate = useNavigate();

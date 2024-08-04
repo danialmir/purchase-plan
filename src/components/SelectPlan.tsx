@@ -1,12 +1,14 @@
 import { Switch } from "@mui/material"
 import PlanList from "./PlanList"
-import { Dispatch, SetStateAction, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import NavigateButtonGroup from "./NavigateButtonGroup";
 
-declare module '@mui/material/Switch'{ 
-    interface SwichPropsColorOverrides {
-MarineBlue:true;
-} }
+declare module '@mui/material/Switch' {
+  interface SwitchPropsColorOverrides {
+    MarineBlue: true;
+  }
+}
+
 
 function SelectPlan() {
 const [plan,setPlan]:[string,Dispatch<SetStateAction<string>>] =useState("monthly") ;

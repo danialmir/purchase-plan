@@ -5,7 +5,7 @@ interface Props{
     title:string;
     price:number;
     subtitle:string;
-    optionEvents: (id:string , action?:string)=>boolean|void
+    optionEvents: (id:string , action?:string)=>boolean|undefined
     duration?:string
 }
 

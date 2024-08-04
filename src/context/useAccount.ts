@@ -1,5 +1,6 @@
-import { ReducerAction, useContext } from "react";
-import { accountcontext } from "./AcountProvider";
+import { useContext } from "react";
+import Account, { accountcontext } from "../module";
+
 
 export const useAccount = function () {
   const accountProperties = useContext(accountcontext);
