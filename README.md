@@ -8,7 +8,7 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 ## pay attention
-as the main branch is not compleate yet you sould push the context branch
+as the main branch is not compleate yet you sould pull the context branch
 
 when you push the code before running the devolopment server run json-server
 
