@@ -7,6 +7,12 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
+pay attention
+as the main branch is not compleate yet you sould push the context branch
+when you push the code before running the devolopment server run json-server 
+you can run that by runnig the command : npm/yarn run server
+and to run the devolopment server run : npm/yarn run dev
+
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
